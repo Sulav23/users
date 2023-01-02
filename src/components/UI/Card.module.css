@@ -1,12 +1,16 @@
 .card {
   width: 60%;
-  margin: 4rem auto;
-  padding: 2rem 1rem;
-  background-color: #ffe2e2;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #a9bcd0;
 }
 
-.modal {
-  margin-top: 6rem;
+.form {
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+}
+
+.list {
+  width: 100%;
+  padding: 1rem;
 }

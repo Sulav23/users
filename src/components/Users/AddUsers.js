@@ -4,7 +4,7 @@ import Card from "../UI/Card";
 import classes from "../UI/Card.module.css";
 import "./AddUsers.css";
 
-const AddUsers = ({ getUsers }) => {
+const AddUsers = ({ getUsers, modalData }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
 
@@ -12,14 +12,20 @@ const AddUsers = ({ getUsers }) => {
     e.preventDefault();
 
     if (name.trim().length === 0 || age.trim().length === 0) {
+      modalData({
+        text: "Please enter both the values.",
+        isOpen: true,
+      });
       return;
     }
 
     if (+age <= 0) {
+      modalData({
+        text: "Invalid age. Age cannot be a negative value.",
+        isOpen: true,
+      });
       return;
     }
-
-    console.log(typeof age);
 
     getUsers({ name, age });
 
@@ -28,7 +34,7 @@ const AddUsers = ({ getUsers }) => {
   };
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.form}>
       <form onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="name">Name</label>

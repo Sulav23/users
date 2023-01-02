@@ -8,9 +8,5 @@ html {
 
 body {
   margin: 0;
-  background-color: #f6f6f6;
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: 300px auto;
-  gap: 1rem;
+  background-color: #d8dbe2;
 }
