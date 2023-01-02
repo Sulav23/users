@@ -1,14 +1,30 @@
 import React, { useState } from "react";
+import Button from "../UI/Button";
 import Card from "../UI/Card";
 import classes from "../UI/Card.module.css";
 import "./AddUsers.css";
 
-const AddUsers = () => {
+const AddUsers = ({ getUsers }) => {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (name.trim().length === 0 || age.trim().length === 0) {
+      return;
+    }
+
+    if (+age <= 0) {
+      return;
+    }
+
+    console.log(typeof age);
+
+    getUsers({ name, age });
+
+    setName("");
+    setAge("");
   };
 
   return (
@@ -32,7 +48,7 @@ const AddUsers = () => {
             onChange={(e) => setAge(e.target.value)}
           />
         </div>
-        <button className="btn">Add User</button>
+        <Button type={"submit"}>Add User</Button>
       </form>
     </Card>
   );
