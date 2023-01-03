@@ -14,7 +14,7 @@ const UserList = ({ users }) => {
       <Card className={classes.list}>
         <ul>
           {users.map((user, index) => (
-            <UserItem user={user} index={index} />
+            <UserItem user={user} id={index} />
           ))}
         </ul>
       </Card>
