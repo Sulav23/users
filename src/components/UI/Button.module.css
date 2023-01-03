@@ -18,5 +18,9 @@
 }
 
 .close-btn {
-  background-color: #373f51;
+  border: 2px solid #373f51;
+  color: #373f51;
+  background-color: transparent;
+  font-weight: bold;
+  margin-top: 2rem;
 }

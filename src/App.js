@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "./components/UI/Modal";
 import AddUsers from "./components/Users/AddUsers";
 import UserList from "./components/Users/UserList";
-import classes from "./components/UI/Modal.module.css";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -18,7 +17,6 @@ const App = () => {
 
   const closeModal = () => {
     setModal({
-      text: "",
       isOpen: false,
     });
   };
@@ -27,11 +25,7 @@ const App = () => {
     <div>
       <AddUsers getUsers={getUsers} modalData={modalData} />
       {modal.isOpen && (
-        <Modal
-          text={modal.text}
-          closeModal={closeModal}
-          className={!modal.isOpen ? classes.hide : classes.show}
-        />
+        <Modal title={modal.title} text={modal.text} closeModal={closeModal} />
       )}
       <UserList users={users} />
     </div>

@@ -8,29 +8,37 @@ const AddUsers = ({ getUsers, modalData }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
 
+  const resteInputs = () => {
+    setName("");
+    setAge("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name.trim().length === 0 || age.trim().length === 0) {
       modalData({
+        title: "Invalid Name or Age",
         text: "Please enter both the values.",
         isOpen: true,
       });
+      resteInputs();
       return;
     }
 
     if (+age <= 0) {
       modalData({
-        text: "Invalid age. Age cannot be a negative value.",
+        title: "Invalid age.",
+        text: " Age cannot be a negative value.",
         isOpen: true,
       });
+      resteInputs();
       return;
     }
 
     getUsers({ name, age });
 
-    setName("");
-    setAge("");
+    resteInputs();
   };
 
   return (
